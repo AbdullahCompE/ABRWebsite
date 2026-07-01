@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-deep text-white font-sans overflow-x-hidden antialiased;
+  }
+  ::selection {
+    background: #d4af37;
+    color: #133630;
+  }
+}
+
+@layer utilities {
+  .noise-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.05;
+    mix-blend-mode: multiply;
+  }
+  .text-balance { text-wrap: balance; }
+}
+
+/* Magnetic buttons */
+.magnetic-btn {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+.magnetic-btn:hover {
+  transform: scale(1.03);
+}
+.magnetic-btn .hover-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 0;
+}
+.magnetic-btn:hover .hover-bg {
+  opacity: 1;
+}
+
+/* Link hover lift */
+.link-hover {
+  position: relative;
+  transition: transform 0.2s ease-out, color 0.2s ease-out;
+}
+.link-hover:hover {
+  transform: translateY(-1px);
+}
+.link-hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1.5px;
+  background: currentColor;
+  transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.link-hover:hover::after { width: 100%; }
+.link-hover.active::after { width: 100%; }
+
+/* Reveal animations (initial state for GSAP) */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(40px);
+  will-change: transform, opacity;
+}
+.reveal-fade {
+  opacity: 0;
+  will-change: opacity;
+}
+
+/* Image zoom container for ScrollTrigger parallax */
+.img-zoom {
+  overflow: hidden;
+}
+.img-zoom > img {
+  transform: scale(1.05);
+  transition: transform 0.6s ease-out;
+}
+
+/* Headline that wraps gracefully on mobile */
+.hero-display {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 0.85;
+}
+
+/* Vertical timeline dot pulse */
+.timeline-dot {
+  position: relative;
+}
+.timeline-dot::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 9999px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  animation: pulse-ring 2.4s ease-out infinite;
+}
+@keyframes pulse-ring {
+  0%   { opacity: 0.8; transform: scale(0.8); }
+  100% { opacity: 0; transform: scale(1.5); }
+}

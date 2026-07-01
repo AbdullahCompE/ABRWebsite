@@ -1,0 +1,50 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Local-only tooling / notes not needed to run the site
+.claude/
+figma-plugin/
+example/
+GEMINI.md
+claude.md
+
+# Large raw photo libraries: ignore everything under the two shoot folders, then
+# whitelist only the specific images the website actually imports/uses.
+/assets/1001 SW 120th Dr, Gainesville, FL 32607/*
+!/assets/1001 SW 120th Dr, Gainesville, FL 32607/imgi_1250_dfd527db64f237168eb328ea7a44d8c9-uncropped_scaled_within_1536_1152.jpg
+!/assets/1001 SW 120th Dr, Gainesville, FL 32607/imgi_1274_3cbd9f8484ddf54394b89f0e7fd83172-uncropped_scaled_within_1536_1152.jpg
+!/assets/1001 SW 120th Dr, Gainesville, FL 32607/imgi_5_hero.png
+!/assets/1001 SW 120th Dr, Gainesville, FL 32607/imgi_672_214d2582741dfee4e4ab1c5544acff03-cc_ft_1152.jpg
+!/assets/1001 SW 120th Dr, Gainesville, FL 32607/imgi_980_fb6ae9ce9f7aa75cea1d22e90f9d85bf-uncropped_scaled_within_1536_1152.jpg
+!/assets/1001 SW 120th Dr, Gainesville, FL 32607/imgi_986_a201ffbf33d8f69540dc8f921d00e929-uncropped_scaled_within_1344_1008.jpg
+/assets/Greystone 3981 NW 63rd/*
+!/assets/Greystone 3981 NW 63rd/2__mg_1960.jpg
+!/assets/Greystone 3981 NW 63rd/10__mg_1942.jpg
+!/assets/Greystone 3981 NW 63rd/12__mg_1975.jpg
+!/assets/Greystone 3981 NW 63rd/14__mg_1984.jpg
+!/assets/Greystone 3981 NW 63rd/15__mg_1981.jpg
+
+# Contact bg is not imported anywhere in src — keep it out of the repo
+/assets/contact/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
